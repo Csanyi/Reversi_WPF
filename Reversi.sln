@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31727.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reversi", "Reversi\Reversi.csproj", "{C40230AE-7FDD-4330-99A6-90C07DF10F07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReversiTest", "ReversiTest\ReversiTest.csproj", "{B41EF962-1B7C-4C62-AA38-D10D78FA6ABC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reversi_M_P", "Reversi_M_P\Reversi_M_P.csproj", "{3410E122-0193-4D98-9810-73A00AD8B67C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C40230AE-7FDD-4330-99A6-90C07DF10F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40230AE-7FDD-4330-99A6-90C07DF10F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40230AE-7FDD-4330-99A6-90C07DF10F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40230AE-7FDD-4330-99A6-90C07DF10F07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B41EF962-1B7C-4C62-AA38-D10D78FA6ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B41EF962-1B7C-4C62-AA38-D10D78FA6ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B41EF962-1B7C-4C62-AA38-D10D78FA6ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B41EF962-1B7C-4C62-AA38-D10D78FA6ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3410E122-0193-4D98-9810-73A00AD8B67C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3410E122-0193-4D98-9810-73A00AD8B67C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3410E122-0193-4D98-9810-73A00AD8B67C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3410E122-0193-4D98-9810-73A00AD8B67C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8B469E0-8F52-4EAE-8F49-F15FB20F89EA}
+	EndGlobalSection
+EndGlobal

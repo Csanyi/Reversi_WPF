@@ -1,0 +1,113 @@
+﻿<Window x:Class="Reversi.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Reversi"
+        mc:Ignorable="d"
+        Title="Reversi" Height="650" Width="630" MinHeight="650" MinWidth="630" Icon="/View/reversi_icon.ico">
+    <Window.Resources>
+        <Style x:Key="statusBarItemStyleWhite" TargetType="StatusBarItem">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ColorWhite}" Value="0">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ColorWhite}" Value="1">
+                    <Setter Property="Background" Value="LightGreen"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="statusBarItemStyleBlack" TargetType="StatusBarItem">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ColorBlack}" Value="0">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ColorBlack}" Value="1">
+                    <Setter Property="Background" Value="LightGreen"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+  
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="New Game">
+                    <MenuItem Header="10x10" Command="{Binding NewGameCommand}" CommandParameter="10" />
+                    <MenuItem Header="20x20" Command="{Binding NewGameCommand}" CommandParameter="20" />
+                    <MenuItem Header="30x30" Command="{Binding NewGameCommand}" CommandParameter="30" />
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Pause" Command="{Binding PauseGameCommand}" IsEnabled="{Binding IsGoing}" />
+                <MenuItem Header="Restart" Command="{Binding RestartGameCommand}" IsEnabled="{Binding IsPaused}"/>
+                <Separator />
+                <MenuItem Header="Open..." Command="{Binding LoadGameCommand}" />
+                <MenuItem Header="Save..." Command="{Binding SaveGameCommand}" />
+                <Separator />
+                <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+        </Menu>
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Fields}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="{Binding Size}" Columns="{Binding Size}"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Command="{Binding StepCommand}" CommandParameter="{Binding Number}" BorderBrush="DarkGreen" Focusable="False">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsWhite}" Value="True">
+                                        <Setter Property="Background" Value="White"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsBlack}" Value="True">
+                                        <Setter Property="Background" Value="Black" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsEmpty}" Value="True">
+                                        <Setter Property="Background" Value="#FF068F46" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                        <Setter Property="IsHitTestVisible" Value="True" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsActive}" Value="False">
+                                        <Setter Property="IsHitTestVisible" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Grid.Row" Value="{Binding X}" />
+                    <Setter Property="Grid.Column" Value="{Binding Y}" />
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+        <StatusBar Grid.Row="2">
+            <StatusBarItem Style="{StaticResource statusBarItemStyleWhite}">
+                <TextBlock Text="White: " />
+            </StatusBarItem>
+            <StatusBarItem Style="{StaticResource statusBarItemStyleWhite}">
+                <TextBlock Text="{Binding TimeWhite}" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem Style="{StaticResource statusBarItemStyleBlack}">
+                <TextBlock Text="Black: " />
+            </StatusBarItem>
+            <StatusBarItem Style="{StaticResource statusBarItemStyleBlack}">
+                <TextBlock Text="{Binding TimeBlack}" />
+            </StatusBarItem>
+            <StatusBarItem />
+        </StatusBar>
+    </Grid>
+</Window>

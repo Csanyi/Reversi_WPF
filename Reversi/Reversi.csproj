@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>View\reversi_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="View\reversi_icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Reversi_M_P\Reversi_M_P.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\reversi_icon.ico" />
+  </ItemGroup>
+
+</Project>
